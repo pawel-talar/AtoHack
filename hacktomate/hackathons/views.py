@@ -5,4 +5,5 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the hackathons index.")
+    """the home page for HackathonOrganizer"""
+    return render(request, 'hackathons/index.html')
