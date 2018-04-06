@@ -1,2 +1,2 @@
 from profile import *
-from organizer import *
+#from organizer import *
