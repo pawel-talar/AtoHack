@@ -8,7 +8,7 @@ def index(request):
     request.session['logged_in'] = True
     request.session['id'] = 1
     if request.session['logged_in']:
-        return render(request, 'index.html')
+        return render(request, 'user/index.html')
 
 
 def register(request):
@@ -18,7 +18,7 @@ def register(request):
             instance = form.save()
     else:
         form = ProfileForm()
-    return render(request, 'profile.html', {'form': form})
+    return render(request, 'user/profile.html', {'form': form})
 
 
 def profile(request):
@@ -28,4 +28,4 @@ def profile(request):
             pass  # does nothing, just trigger the validation
     else:
         form = ProfileForm()
-    return render(request, 'profile.html', {'form': form})
+    return render(request, 'user/profile.html', {'form': form})
