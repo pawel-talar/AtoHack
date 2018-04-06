@@ -9,3 +9,5 @@ class Profile(models.Model):
     )
     name = models.CharField(max_length=80)
     shirt_size = models.CharField(max_length=1, choices=SHIRT_SIZES)
+    bio = models.TextField(max_length=500, blank=True)
+    location = models.CharField(max_length=30, blank=True)
