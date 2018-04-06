@@ -1,2 +1,2 @@
 # AtoHack
-booksharing.com - site for sharing books
+booksharing.pl - portal do organizacji hackatonów XD
