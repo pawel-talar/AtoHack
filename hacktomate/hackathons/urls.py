@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     #empty page
     path('', views.index, name='index'),
-    #path('hackathons/', views.)
+    path('hackathons/', views.index, name='index'),
 
     #page listing all organizators
     #page with hackathons created by specific organization
