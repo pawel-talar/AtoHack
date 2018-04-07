@@ -7,7 +7,15 @@ from .models import Organizer
 from .forms import OrganizerForm
 
 def index(request):
-    return render(request, 'organizer/index.html')
+    request.session['logged_in'] = True
+    request.session['id'] = 1
+    orgs = Organizer.objects.all()
+    print(orgs[0].id)
+    if request.session['logged_in']:
+        return render(request, 'organizer/index.html', {'orgs':[{
+            'name': org.name,
+            'text': org.text
+        } for org in orgs]})
 
 def register(request):
     if request.method == 'POST':
