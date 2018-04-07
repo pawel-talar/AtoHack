@@ -1,50 +1,14 @@
-{% extends "hackathons/base.html" %}
+{% extends 'hackathons/base.html' %}
 
 {% block content %}
-    <header id="gtco-header" class="gtco-cover" role="banner">
-      <div class="gtco-container row">
-          <div class="col-md-12 col-md-offset-0 text-left">
-            <div class="display-t">
-              <div class="display-tc row">
-                <div class="col-md-5 text-center header-img animate-box">
-                  {% load static %}
-                  <img src="{% static "hackathons/images/cube.png" %}" alt="Free HTML5 Website Template by FreeHTML5.co">
-                </div>
-                <div class="col-md-7 copy animate-box">
-                  <h1>Zorganizuj swój hackaton z&nbsp;HackToMate</h1>
-                  <p>System do automatycznego rejestrowania użytkowników, wspierający Cię na każdym etapie organizacji.</p>
-                  <!-- <p><a href="http://freehtml5.co" target="_blank" class="btn btn-white">Visit FreeHTML5.co</a></p> -->
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-    </header>
-    <!-- END #gtco-header -->
-    <!-- <div class="gtco-client">
-      <div class="gtco-container">
-        <div class="row">
-          <div class="col-md-2 col-md-offset-1 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
-            {% load static %}
-            <img src="{% static "hackathons/images/client_1.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
-          </div>
-          <div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
-            <img src="{% static "hackathons/images/client_2.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
-          </div>
-          <div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
-            <img src="{% static "hackathons/images/client_3.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
-          </div>
-          <div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
-            <img src="{% static "hackathons/images/client_4.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
-          </div>
-          <div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
-            <img src="{% static "hackathons/images/client_5.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- END .gtco-client -->
 
-  {% include "hackathons/footer.html" %}
+<div class="container" style="margin-top: 50px; width: 600px; height: 600px; background-color: #00ffa3; padding: 10px; border-radius: 10px">
+<h1>All events</h1>
+    <ul>
+        {% for event in events %}
+        <li>{{ event.name }} {{event.text}}</li>
+        {% endfor %}
+    </ul>
+</div>
 
-{% endblock content %}
+{% endblock %}
