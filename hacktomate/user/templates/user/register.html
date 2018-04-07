@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form method="post" novalidate>
+<form method="post"  enctype="multipart/form-data" novalidate>
   {% csrf_token %}
   {{ form }}
   <button type="submit">Submit</button>
