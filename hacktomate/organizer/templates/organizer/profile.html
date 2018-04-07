@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-PROFIL
-{{ form.as_p }}
-{% if saved %}
-<span>Profile saved!</span>
-{% endif %}
+{% extends "hackathons/base.html" %}
+{% block content %}
 
-</body>
-</html>
+<header id="gtco-header" class="gtco-cover" role="banner">
+  <div class="gtco-container row">
+
+    <div class="container form-wrapper">
+      <h3>PROFIL</h3>
+      {{ form.as_p }}
+      {% if saved %}
+      <span>Profile saved!</span>
+      {% endif %}
+      <button type="submit">Submit</button>
+    </div>
+
+  </div>
+</header>
+
+{% endblock %}
