@@ -18,8 +18,8 @@ def index(request):
     skills_per_user = {}
     for u in skills:
         if u.user not in skills_per_user:
-            skills_per_user[u.user] = []
-        skills_per_user[u.user].append(u.skill)
+            skills_per_user[u.user] = set()
+        skills_per_user[u.user].add(u.skill)
 
     skills_lists = {k.id: ','.join(v) for k, v in skills_per_user.items()}
     print(skills_lists)
