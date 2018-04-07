@@ -26,3 +26,9 @@
   border-radius: 5px;
   padding: 15px;
 }
+
+.home-table {
+  position: relative;
+  display: block;
+  padding: 40px;
+}

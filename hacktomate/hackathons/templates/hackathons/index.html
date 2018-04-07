@@ -1,23 +1,70 @@
-{% extends 'hackathons/base.html' %}
+  {% extends 'hackathons/base.html' %}
 
-{% block content %}
+  {% block content %}
+  <div class="gtco-loader"></div>
+  	<div id="page">
+  		<header id="gtco-header" class="gtco-cover" role="banner">
+  			<div class="gtco-container">
+  				<div class="row">
+  					<div class="col-md-12 col-md-offset-0 text-left">
+  						<div class="display-t">
+  							<div class="display-tc">
+  								<div class="row">
+  									<div class="col-md-5 text-center header-img animate-box">
+                      {% load static %}
+  										<img src="{% static "hackathons/images/cube.png" %}" alt="Free HTML5 Website Template by FreeHTML5.co">
+  									</div>
+  									<div class="col-md-7 copy animate-box">
+  										<h1>Zorganizuj swój hackaton wraz z HackToMate</h1>
+  										<p>Serwis, który załatwi wszystkie formalności za Ciebie.</p>
+  									</div>
+  								</div>
+  							</div>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</header>
+  		<!-- END #gtco-header -->
+  	</div>
 
-<div class="container"
-     style="margin-top: 50px; width: 900px; height: 600px; background-color: #00ffa3; padding: 10px; border-radius: 10px">
-    <h1>All hackathons</h1>
+    <div class="container home-table">
+        <h1>All hackathons</h1>
+        <table style="width:100%">
+            {% for event in events %}
+            <tr>
+                <td>{{event.name}}</td>
+                <td>{{event.text}}</td>
+                <td>{{event.rate | floatformat}}</td>
+                <td><a style="font-size: 30px; color: green" href="/hackathons/up/{{event.id}}">+</a></td>
+                <td><a style="font-size: 30px; color: red" href="/hackathons/down/{{event.id}}">-</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 
-    <table style="width:100%">
-        {% for event in events %}
-        <tr>
-            <td>{{event.name}}</td>
-            <td>{{event.text}}</td>
-            <td>{{event.rate | floatformat}}</td>
-            <td><a style="font-size: 30px; color: green" href="/hackathons/up/{{event.id}}">+</a></td>
-            <td><a style="font-size: 30px; color: red" href="/hackathons/down/{{event.id}}">-</a></td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="gtco-client">
+      <div class="gtco-container">
+        <div class="row">
+          <div class="col-md-2 col-md-offset-1 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+            {% load static %}
+            <img src="{% static "hackathons/images/client_1.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
+          </div>
+          <div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+            <img src="{% static "hackathons/images/client_2.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
+          </div>
+          <div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+            <img src="{% static "hackathons/images/client_3.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
+          </div>
+          <div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+            <img src="{% static "hackathons/images/client_4.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
+          </div>
+          <div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+            <img src="{% static "hackathons/images/client_5.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END .gtco-client -->
 
-</div>
-
-{% endblock %}
+  {% endblock %}
