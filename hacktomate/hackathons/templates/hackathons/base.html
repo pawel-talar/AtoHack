@@ -1,33 +1,87 @@
-<!doctype html>
-<html lang="pl">
-<head>
-  <title>Hackaton organizer</title>
-  <meta charset="utf-8">
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+<!DOCTYPE HTML>
+<!--
+	Cube by FreeHTML5.co
+	Twitter: http://twitter.com/gettemplateco
+	URL: http://freehtml5.co
+-->
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HacktoMate</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FreeHTML5.co" />
 
-  <!-- Bootstrap css -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- {% load static %} -->
-  <link rel="stylesheet" href="{% static "hackathons/css/normalize.css" %}"  type="text/css">
-  <link rel="stylesheet" href="{% static "hackathons/css/global-components.css" %}"  type="text/css">
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
 
-  <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
-</head>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,700" rel="stylesheet">
 
+	<!-- Animate.css -->
+  {% load static %}
+	<link rel="stylesheet" href="{% static "hackathons/css/animate.css" %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static "hackathons/css/icomoon.css" %}">
+	<!-- Themify Icons-->
+	<link rel="stylesheet" href="{% static "hackathons/css/themify-icons.css" %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static "hackathons/css/bootstrap.css" %}">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{% static "hackathons/css/magnific-popup.css" %}">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="{% static "hackathons/css/owl.carousel.min.css" %}">
+	<link rel="stylesheet" href="{% static "hackathons/css/owl.theme.default.min.css" %}">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{% static "hackathons/css/style.css" %}">
+
+	<!-- Modernizr JS -->
+	<script src="{% static "hackathons/js/modernizr-2.6.2.min.js" %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
 <body>
+
+	<div class="gtco-loader"></div>
+
   {% block content %}
     Default: (could not download extends!)
   {% endblock content %}
 
+  <div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
 
+  <!-- jQuery -->
+  <script src="{% static "hackathons/js/jquery.min.js" %}"></script>
+  <!-- jQuery Easing -->
+  <script src="{% static "hackathons/js/jquery.easing.1.3.js" %}"></script>
+  <!-- Bootstrap -->
+  <script src="{% static "hackathons/js/bootstrap.min.js" %}"></script>
+  <!-- Waypoints -->
+  <script src="{% static "hackathons/js/jquery.waypoints.min.js" %}"></script>
+  <!-- Carousel -->
+  <script src="{% static "hackathons/js/owl.carousel.min.js" %}"></script>
+  <!-- Magnific Popup -->
+  <script src="{% static "hackathons/js/jquery.magnific-popup.min.js" %}"></script>
+  <script src="{% static "hackathons/js/magnific-popup-options.js" %}"></script>
+  <!-- Main -->
+  <script src="{% static "hackathons/js/main.js" %}"></script>
 
-  <!-- BOOTSTRAP JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <!-- <script src="js/scripts.js"></script> -->
-</body>
-</html>
+  </body>
+  </html>
