@@ -65,9 +65,11 @@
 
 	{% include "hackathons/navbar.html" %}
 
-  {% block content %}
-    Default: (could not download extends!)
-  {% endblock content %}
+	<div id="page">
+	  {% block content %}
+	    Default: (could not download extends!)
+	  {% endblock content %}
+	</div>
 
   <div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>

@@ -1,13 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "hackathons/base.html" %}
 
-Your hackathons:
+{% block content %}
 
 
-</body>
-</html>
+<div id="gtco-header" class="gtco-cover">
+  <div class="container" style="margin-top: 45px">
+    <table class="table hackathons-table">
+      <h1>Hackathony firmy [POTRZEBNY LOAD]{{company}}:</h1>
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Temat</th>
+          <th scope="col">Lokacja</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mark</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <td>Jacob</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <td>Larry</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+{% endblock content %}
