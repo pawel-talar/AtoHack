@@ -11,4 +11,4 @@ from .models import Hackathon
 class HackathonForm(forms.ModelForm):
     class Meta:
         model = Hackathon
-        fields = '__all__'
+        fields = ['name', 'description', 'owner']

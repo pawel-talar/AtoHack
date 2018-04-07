@@ -5,7 +5,7 @@
 <div class="container" style="margin-top: 50px; width: 900px; height: 600px; background-color: #00ffa3; padding: 10px; border-radius: 10px">
 <form method="post" novalidate>
   {% csrf_token %}
-  {{ form }}
+  {{ form.as_p }}
   <button type="submit">Submit</button>
 </form>
 </div>

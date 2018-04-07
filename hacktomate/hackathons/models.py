@@ -5,11 +5,18 @@ from user.models import Profile
 
 class Hackathon(models.Model):
     """a hackathon entry containing it's description and a picture"""
-    text = models.TextField()
-    photo = models.ImageField(upload_to='photos', default='/photos/default.png')
+    name = models.CharField(max_length=30)
+    description = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
+    rate = models.FloatField(default=0.0)
     owner = models.ForeignKey(Organizer, on_delete=models.DO_NOTHING)
-    contestants = models.ManyToManyField(Profile)
+
 
     def __str__(self):
-        return self.text
+        return self.name
+
+
+class HackatonRating(models.Model):
+    RATINGS = (('-', 'down'), ('+', 'up'))
+    rate = models.CharField(max_length=1, choices=RATINGS)
+    owner = models.ForeignKey(Hackathon, on_delete=models.DO_NOTHING)
