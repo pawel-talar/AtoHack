@@ -1,10 +1,10 @@
 from django import forms
 from .models import Organizer
 
-class OrganizerForm(forms.Form):
+class OrganizerForm(forms.ModelForm):
    class Meta:
        model = Organizer
-       fields = ['name', 'text', 'photo']
+       fields = '__all__'
 
    def clean(self):
-       cleaned_data = super(ProfileForm, self).clean()
+       cleaned_data = super(OrganizerForm, self).clean()
