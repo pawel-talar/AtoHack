@@ -37,6 +37,35 @@ def index(request):
     } for event in events]})
 
 
+def hackathons(request):
+    request.session['logged_in'] = True
+    request.session['id'] = 1
+    events = Hackathon.objects.all()
+
+    ratings = HackatonRating.objects.all()
+    rating_per_event = {}
+    for r in ratings:
+        print(r.owner, r.rate, type(r.rate))
+        print(r.owner.id)
+        if r.owner.id not in rating_per_event:
+            rating_per_event[r.owner.id] = [-1.0 if r.rate == '-' else 1.0, 0]
+        else:
+            rs, ns = rating_per_event[r.owner.id]
+            # 1.0, 1
+            if r.rate == '-':
+                rating_per_event[r.owner.id][0] = (rs * ns - 1) / (ns + 1)
+            if r.rate == '+':
+                rating_per_event[r.owner.id][0] = (rs * ns + 1) / (ns + 1)
+        rating_per_event[r.owner.id][1] += 1
+    print(rating_per_event)
+    return render(request, 'hackathons/hackathons.html', {'events': [{
+        'id': event.id,
+        'name': event.name,
+        'text': event.description,
+        'rate': rating_per_event[event.id][0] * 4.0 + 1 if event.id in rating_per_event else 0.0
+    } for event in events]})
+
+
 def register(request):
     if request.method == 'POST':
         form = HackathonForm(request.POST)

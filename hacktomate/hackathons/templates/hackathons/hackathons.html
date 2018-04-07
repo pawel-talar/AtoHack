@@ -1,0 +1,53 @@
+{% extends 'hackathons/base.html' %}
+
+{% block content %}
+<div class="gtco-loader"></div>
+  <div id="page">
+    <header id="gtco-header" class="gtco-cover" role="banner">
+
+      <div class="container home-table" style="background-color: #fff; margin-top: 55px">
+          <h1>All hackathons</h1>
+          <table style="width:100%">
+              {% for event in events %}
+              <tr>
+                  <td>{{event.name}}</td>
+                  <td>{{event.text}}</td>
+                  <td>{{event.rate | floatformat}}</td>
+                  <td><a style="font-size: 30px; color: green" href="/hackathons/up/{{event.id}}">+</a></td>
+                  <td><a style="font-size: 30px; color: red" href="/hackathons/down/{{event.id}}">-</a></td>
+              </tr>
+              {% endfor %}
+          </table>
+      </div>
+    </header>
+    <!-- END #gtco-header -->
+
+  </div>
+
+
+
+  <div class="gtco-client">
+    <div class="gtco-container">
+      <div class="row">
+        <div class="col-md-2 col-md-offset-1 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+          {% load static %}
+          <img src="{% static "hackathons/images/client_1.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
+        </div>
+        <div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+          <img src="{% static "hackathons/images/client_2.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
+        </div>
+        <div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+          <img src="{% static "hackathons/images/client_3.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
+        </div>
+        <div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+          <img src="{% static "hackathons/images/client_4.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
+        </div>
+        <div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+          <img src="{% static "hackathons/images/client_5.png" %}" alt="Free Website Template by FreeHTML5.co" class="img-responsive">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END .gtco-client -->
+
+{% endblock %}
