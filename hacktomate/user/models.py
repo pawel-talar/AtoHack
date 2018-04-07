@@ -9,5 +9,9 @@ class Profile(models.Model):
     )
     name = models.CharField(max_length=80)
     shirt_size = models.CharField(max_length=1, choices=SHIRT_SIZES)
-    bio = models.TextField(max_length=500, blank=True)
+    cv = models.FileField(null=True, upload_to='documents/')
     location = models.CharField(max_length=30, blank=True)
+
+
+class Skill(models.Model):
+    TECHS = ['c++', 'python', 'javascript', 'postgresql', 'node.js', 'sqlite', 'c#', 'haskell', 'linux']
