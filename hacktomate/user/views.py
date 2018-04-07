@@ -5,18 +5,20 @@ from django.contrib import messages
 
 import pdftotext
 
-from .models import Profile
+from .models import Profile, Skill
 from .forms import ProfileForm
 
 
 def index(request):
     request.session['logged_in'] = True
     request.session['id'] = 1
+    users = Profile.objects.all()
     if request.session['logged_in']:
-        return render(request, 'user/index.html')
+        return render(request, 'user/index.html', {'users':  users})
 
 
 def register(request):
+    request.session['id'] = 1
     if request.method == 'POST':
         form = ProfileForm(request.POST)
         if form.is_valid():
@@ -30,7 +32,18 @@ def register(request):
     return render(request, 'user/profile.html', {'form': form})
 
 
+def handle_skills(filepath, user_id):
+    pdf = pdftotext.PDF(filepath.open())
+    text = ''.join(pdf).lower()
+    print(text)
+    for tech in Skill.TECHS_:
+        if tech in text:
+            skill = Skill.objects.create(user_id=user_id, skill=tech)
+            skill.save()
+
+
 def profile(request):
+    request.session['id'] = 1
     instance = None
     id = 1
     print("lel")
@@ -46,11 +59,10 @@ def profile(request):
         if form.is_valid():
             print('valid')
             try:
-                newdoc = request.FILES['cv']
-                print(newdoc)
+                file_path = request.FILES['cv']
                 print(request.FILES['cv'])
                 profile = form.save()
-                print(profile.cv)
+                handle_skills(file_path, request.session['id'])
                 saved = True
             except Exception as e:
                 print(e)

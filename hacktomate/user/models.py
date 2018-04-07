@@ -14,4 +14,13 @@ class Profile(models.Model):
 
 
 class Skill(models.Model):
-    TECHS = ['c++', 'python', 'javascript', 'postgresql', 'node.js', 'sqlite', 'c#', 'haskell', 'linux']
+    TECHS_ = ('c++', 'python', 'javascript', 'postgresql', 'node.js', 'sqlite', 'c#', 'haskell', 'linux')
+    TECHS = tuple(zip(TECHS_, TECHS_))
+
+    user = models.ForeignKey(
+        Profile,
+        models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    skill = models.CharField(max_length=20, choices=TECHS)

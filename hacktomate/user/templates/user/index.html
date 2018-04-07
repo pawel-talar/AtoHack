@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'hackathons/base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+<div class="container" style="margin-top: 50px; width: 600px; height: 600px; background-color: #00ffa3; padding: 10px; border-radius: 10px">
+<h1>All participants</h1>
+    <ul>
+        {% for user in users %}
+        <li>{{ user.name }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
