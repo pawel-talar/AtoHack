@@ -1,14 +1,13 @@
-{% extends 'hackathons/index.html' %}
+{% extends 'hackathons/base.html' %}
 
 {% block content %}
 
 <div class="container" style="margin-top: 50px; width: 900px; height: 600px; background-color: #00ffa3; padding: 10px; border-radius: 10px">
-<h1>All participants</h1>
-    <ul>
-        {% for user in users %}
-        <li>{{ user.name }} {{user.skills}}</li>
-        {% endfor %}
-    </ul>
+<form method="post" novalidate>
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit">Submit</button>
+</form>
 </div>
 
 {% endblock %}

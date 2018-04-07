@@ -20,9 +20,11 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from . import settings
 
+
 urlpatterns = [
+    path('', include('hackathons.urls')),
+    path('hackathons/', include('hackathons.urls')),
     path('admin/', admin.site.urls),
-    path(r'', include('hackathons.urls')),
     path('user/', include('user.urls')),
     path('organizer/', include('organizer.urls')),
 ]

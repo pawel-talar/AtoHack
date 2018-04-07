@@ -7,15 +7,17 @@ from django.http import HttpResponse
 from .models import Hackathon
 from .forms import HackathonForm
 
+
 def index(request):
     request.session['logged_in'] = True
     request.session['id'] = 1
     events = Hackathon.objects.all()
     if request.session['logged_in']:
-        return render(request, 'organizer/index.html', {'events':[{
+        return render(request, 'hackathons/index.html', {'events':[{
             'name': event.name,
             'text': event.text
         } for event in events]})
+
 
 def register(request):
     if request.method == 'POST':
@@ -28,4 +30,4 @@ def register(request):
                 form = HackathonForm()
     else:
         form = HackathonForm()
-    return render(request, 'hackatons/register.html', {'form': form})
+    return render(request, 'hackathons/register.html', {'form': form})
