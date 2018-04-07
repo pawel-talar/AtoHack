@@ -55,13 +55,18 @@ def handle_skills(filepath, user_id):
             skill.save()
 
 
-def profile(request):
-    request.session['id'] = 1
+def profile(request, id=None):
+    id_ = 1
+
+    if id != None:
+        id_ = id
+
     instance = None
-    id = 1
     print("lel")
+    request.session['id'] = id_
+
     try:
-        instance = get_object_or_404(Profile, pk=id)
+        instance = get_object_or_404(Profile, pk=id_)
     except Exception as e:
         print(e)
     print("lel 2")
