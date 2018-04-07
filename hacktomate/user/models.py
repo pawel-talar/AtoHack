@@ -14,7 +14,7 @@ class Profile(models.Model):
 
 
 class Skill(models.Model):
-    TECHS_ = ('c++', 'python', 'javascript', 'postgresql', 'node.js', 'sqlite', 'c#', 'haskell', 'linux')
+    TECHS_ = ('c++', 'python', 'javascript', 'postgresql', 'node.js', 'sqlite', 'c#', 'haskell', 'linux', 'ruby', 'windows')
     TECHS = tuple(zip(TECHS_, TECHS_))
 
     user = models.ForeignKey(

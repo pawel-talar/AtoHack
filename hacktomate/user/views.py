@@ -33,7 +33,7 @@ def index(request):
 def register(request):
     request.session['id'] = 1
     if request.method == 'POST':
-        form = ProfileForm(request.POST)
+        form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
             try:
                 Profile(**form.cleaned_data).save()
