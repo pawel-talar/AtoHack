@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'', include('hackathons.urls')),
     path('user/', include('user.urls')),
+    path('organizer/', include('organizer.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
