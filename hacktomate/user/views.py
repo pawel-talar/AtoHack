@@ -13,8 +13,21 @@ def index(request):
     request.session['logged_in'] = True
     request.session['id'] = 1
     users = Profile.objects.all()
+    print(users[0].id)
+    skills = Skill.objects.all()
+    skills_per_user = {}
+    for u in skills:
+        if u.user not in skills_per_user:
+            skills_per_user[u.user] = []
+        skills_per_user[u.user].append(u.skill)
+
+    skills_lists = {k.id: ','.join(v) for k, v in skills_per_user.items()}
+    print(skills_lists)
     if request.session['logged_in']:
-        return render(request, 'user/index.html', {'users':  users})
+        return render(request, 'user/index.html', {'users':[{
+            'name': u.name,
+            'skills': skills_lists[u.id] if u.id in skills_lists else ''
+        } for u in users]})
 
 
 def register(request):
