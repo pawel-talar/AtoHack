@@ -1,0 +1,22 @@
+.form-wrapper {
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  margin-top: 45px;
+  border-radius: 5px;
+  padding: 15px;
+}
+.form-wrapper form {
+  position: relative;
+  left: 50%;
+  transform: translateX(-40%);
+}
+.form-wrapper label {
+  min-width: 100px;
+}
+.form-wrapper button {
+  position: relative;
+  left: 50%;
+  transform: translateX(-90%) !important;
+}
